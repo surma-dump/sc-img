@@ -1,0 +1,13 @@
+body {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.spacer {
+  height: 120vh;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
