@@ -59,10 +59,22 @@
       return this.getAttribute('src');
     }
 
+    get full() {
+      return this.hasAttribute('full');
+    }
+
+    get loaded() {
+      return this.hasAttribute('loaded');
+    }
+
     attributeChangedCallback() {
-      const img = document.createElement('img');;
+      if(this.loaded) return;
+      const img = document.createElement('img');
       img.src = this.src;
-      this.shadowRoot.appendChild(img);
+      img.onload = _ => {
+        this.setAttribute('loaded', '');
+        this.shadowRoot.appendChild(img);
+      }
     }
   });
 })();
